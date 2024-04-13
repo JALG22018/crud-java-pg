@@ -9,7 +9,8 @@ services:
     depends_on:
       - java_db
     environment:
-      db_connection_url: jdbc:postgresql://java_db:5432/postgres
+      my_url: jdbc:postgresql://java_db:5432/postgres
+
   java_db:
     container_name: java_db
     image: postgres:latest
