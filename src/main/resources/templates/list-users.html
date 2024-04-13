@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Lista de Usuarios</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
-    <style>
-        footer {
-            text-align: center;
-            background-color: #d0f0f0; 
-            position: fixed;
-        }
-    </style>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Lista de Usuarios</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="container">
-        <div>
-            <h1>Lista de Usuarios</h1>
-        </div>
-        <div class="card">
-            <div class="card-header"> Usuarios </div>
-            <div class="card-body">
-                <table class="table table-bordered table-striped">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Acciones</th>
-                    </tr>
-                    <tr th:each="usr: ${users}">
-                        <td th:text="${usr.id}"></td>
-                        <td th:text="${usr.name}"></td>
-                        <td>
-                            <a class="btn btn-info" th:href="@{'/editar/' + ${usr.id}}">Editar</a>
-                            <a class="btn btn-danger" th:href="@{'/eliminar/' + ${usr.id}}" onclick="return confirm('Seguro que desea eliminar el usuario?')">Eliminar</a>
-                        </td>
-                    </tr>
-                </table>
-                <a class="btn btn-dark" href="/nuevo">Agregar Usuario</a>
-            </div>
-        </div>
+  <div class="container">
+    <div>
+      <h1>Lista de Usuarios</h1>
     </div>
-    <footer>
-        <p><b>Equipo:</b></p>
-        <p><b>Irvin Elias Torres Merlos TM22012</b></p>
-        <p><b>José Arnoldo Landaverde Gómez LG22018</b></p>
-        <p><b>Axel Rodrigo Juarez Quevedo JQ22003</b></p>
-    </footer>
+    <div class="card">
+      <div class="card-header">
+        Usuarios
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+          </tr>
+          <tr th:each="usr: ${users}">
+            <td th:text="${usr.id}"></td>
+            <td th:text="${usr.name}"></td>
+            <td>
+              <a class="btn btn-info" th:href="@{'/editar/' + ${usr.id}}">Editar</a>
+              <a class="btn btn-danger" th:href="@{'/eliminar/' + ${usr.id}}" onclick="return confirm('Seguro que desea eliminar el usuario?')">Eliminar</a>
+            </td>
+          </tr>
+        </table>
+        <a class="btn btn-dark" href="/nuevo">Agregar Usuario</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center" style="background-color: #F0E6CE; position: fixed; bottom: 0; width: 100%;">
+    <p><b>Equipo:</b></p>
+    <p><b>Irvin Elias Torres Merlos TM22012</b></p>
+    <p><b>José Arnoldo Landaverde Gómez LG22018</b></p>
+    <p><b>Axel Rodrigo Juarez Quevedo JQ22003</b></p>
+  </footer>
 </body>
 </html>
